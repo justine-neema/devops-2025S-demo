@@ -3,7 +3,7 @@ from django.db import models
 
 from events.models import Event, EventCategory
 
-
+# adding the necessities
 class NotificationPreference(models.Model):
     """User preferences for receiving notifications"""
 
