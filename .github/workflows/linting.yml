@@ -1,0 +1,8 @@
+name: Python Linter
+
+on:
+  push:
+
+jobs:
+   lint:
+       runs-on: ubuntu-latest
