@@ -1,0 +1,42 @@
+# Git
+.git
+.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Django
+*.sqlite3
+db.sqlite3
+staticfiles/
+media/
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Terraform (not needed inside the app image)
+terraform/
+*.tfstate
+*.tfstate.backup
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Docs & misc
+README.md
+instructions.md
+LICENSE
+*.log
+.DS_Store
