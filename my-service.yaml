@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-web-service
+  namespace: default
+spec:
+  type: ClusterIP
+  selector:
+    app: web-app
+  ports:
+    - protocol: TCP
+      port: 8000        # The port the service exposes to other apps inside the cluster
+      targetPort: 8080 # The port your actual container/pod is listening on
