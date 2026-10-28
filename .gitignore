@@ -144,6 +144,9 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local project binaries
+minikube-linux-amd64
+
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -205,3 +208,4 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+miniku
