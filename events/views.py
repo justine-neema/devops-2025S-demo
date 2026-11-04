@@ -6,6 +6,11 @@ from django.utils import timezone
 from .models import Event, EventCategory, EventRegistration
 
 
+def health_check(request):
+    """Simple health endpoint used by deployment checks."""
+    return JsonResponse({"status": "ok"})
+
+
 def event_list(request):
     """Display list of upcoming events"""
     events = Event.objects.filter(

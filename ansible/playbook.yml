@@ -1,0 +1,35 @@
+---
+- name: Provision campus notifier with Docker
+  hosts: webservers
+  gather_facts: true
+
+  vars:
+    app_image: "neemajdevops/campus-event-notifier:v1"
+    app_name: "campus-notifier-tf"
+    app_port: 8081
+    app_internal_port: 8000
+
+  tasks:
+    - name: Check that Docker is available
+      ansible.builtin.command: docker --version
+      changed_when: false
+
+    - name: Remove any previous app container
+      community.docker.docker_container:
+        name: "{{ app_name }}"
+        state: absent
+        force_kill: true
+
+    - name: Pull the application image
+      community.docker.docker_image:
+        name: "{{ app_image }}"
+        source: pull
+
+    - name: Run the application container
+      community.docker.docker_container:
+        name: "{{ app_name }}"
+        image: "{{ app_image }}"
+        state: started
+        restart_policy: always
+        published_ports:
+          - "{{ app_port }}:{{ app_internal_port }}"
