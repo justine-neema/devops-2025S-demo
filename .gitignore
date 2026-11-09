@@ -216,3 +216,5 @@ miniku
 *.tfvars
 *.pem
 *.key
+
+.env
